@@ -69,7 +69,7 @@ In my pipeline I convert the image to YCrCb and YUV color space. I use Sobel in 
 
 ## Warping the perspective
 
-I use undistorted straing lane image to determine the region of interest:
+I use undistorted straight lane image to determine the region of interest:
 
 ![straight](output_images/straight_lines1_undistorted.jpg)
 

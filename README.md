@@ -30,30 +30,37 @@ I use `cv2.findChessboarCorners` function to detect corners in the distorted ima
 In my pipeline I convert the image to YCrCb and YUV color space. I use Sobel in XY directrion (1,1) to detect the edges in the Y channel of the YCrCb image, Y channel of the YUV image and R channell of the RGB image. I threshold and binarize them together and perform biary 'or' operation to create the final binarized image. 
 
 **Test Image**
+
 ![test](output_images/bridge_shadow.jpg)
 
 **YCrCb Color Space**
 
 *Y Channel*
+
 ![y ycrcb](output_images/y_ycrcb_image.png)
 
 *Sobel applied in XY direction and threshholded*
+
 ![bin ycrcb](output_images/y_ycrcb_sob_xy_thresh.png)
 
 **YUV Color Space**
 
 *Y Channel*
+
 ![y yuv](output_images/y_yuv_image.png)
 
 *Thresholded and binarized*
+
 ![bin yuv](output_images/y_yuv_thresh.png)
 
 **RGB Color Space**
 
 *R Channel*
+
 ![r rgb](output_images/r_channel.png)
 
 *Thresholded and binarized*
+
 ![bin r](output_images/r_bin_thresh.png)
 
 **Combined Image**
@@ -81,5 +88,9 @@ I use the bottom half of the image to determine the bottoms of the lane sides. A
 Once the lanes points are determined I fit the polynomials of the 2nd degree for the left and right side of the lane:
 
 ![polyfit](output_images/lanes_poly_fit.png)
+
+## Discussion
+
+Even though this pipeline successfully detects the lane on the moderately undamaged road with clearly indicated sides of the lane (i.e. a speedway) it cannot be relied upon in some more tough conditions, i.e. damaged roads with worn out lines or roads with different colors of a surface next to each other along the flow of the traffic. Also the radius of curvature cannot be less than couple of hundreds of meters. One of the solutions to the issue related to the curvature of the road can be solved by adaptive region of interest, which shortens and goes towards the direction of the curvature. Improved lane detection can be achieved by using deep learning networks trained to distinguish a real line from some other road artefacts.
 
 ## -> Final Result [Youtube](https://youtu.be/tKYuUuMsROI) <- ## 

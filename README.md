@@ -1,4 +1,4 @@
-# Behavioral Cloning
+# Advanced Line Detection
 *Author:* **Pawel Piela**
 *Date:* **30/4/2018**
 
